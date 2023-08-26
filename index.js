@@ -1,13 +1,16 @@
 import core from "@actions/core";
 import GitHubProject from "github-project";
+import github from "@actions/github";
 
 const run = async () => {
   try {
     const owner = core.getInput("owner");
     const project_id = Number(core.getInput("project-id"));
     const github_token = core.getInput("github-token");
-    const closedIssueColumns = core.getInput("closed-issue-columns");
-    const openIssueColumns = core.getInput("open-issue-columns");
+    const closedIssueColumns = core.getInput("closed-issue-columns").split(",");
+    const openIssueColumns = core.getInput("open-issue-columns").split(",");
+
+    const octokit = await github.getOctokit(github_token);
 
     const project = new GitHubProject({
       owner,
@@ -16,26 +19,69 @@ const run = async () => {
     });
 
     const items = await project.items.list();
+    const archivedRepository = new Set();
+    const filteredIssueItems = [];
 
-    const filteredItemsToClose = items.filter((item) =>
-      closedIssueColumns.includes(item.fields.status && item.state == "open")
+    for (const item of items) {
+      if (!(item.type == "ISSUE" && !item.archived)) {
+        continue;
+      }
+
+      if (archivedRepository.has(item.content.repository)) {
+        continue;
+      }
+
+      try {
+        const { data: repo } = await octokit.rest.repos.get({
+          owner,
+          repo: item.content.repository,
+        });
+
+        if (repo.archived) {
+          archivedRepository.add(item.content.repository);
+          continue;
+        }
+      } catch (error) {
+        console.log(error);
+        continue;
+      }
+
+      filteredIssueItems.push(item);
+    }
+
+    const filteredItemsToClose = filteredIssueItems.filter(
+      (item) =>
+        closedIssueColumns.includes(item.fields.status) && !item.content.closed
     );
+    const filteredItemsToOpen = filteredIssueItems.filter(
+      (item) =>
+        openIssueColumns.includes(item.fields.status) && item.content.closed
+    );
+
     await Promise.all(
-      filteredItemsToClose.map((item) =>
-        project.items.update(item.id, { state: "closed" })
+      filteredItemsToClose.map(async (item) => {
+        return await octokit.rest.issues.update({
+          owner,
+          repo: item.content.repository,
+          issue_number: item.content.number,
+          state: "closed",
+        });
+      })
+    );
+
+    await Promise.all(
+      filteredItemsToOpen.map(
+        async (item) =>
+          await octokit.rest.issues.update({
+            owner,
+            repo: item.content.repository,
+            issue_number: item.content.number,
+            state: "open",
+          })
       )
     );
 
-    const filteredItemsToOpen = items.filter((item) =>
-      openIssueColumns.includes(item.fields.status && item.state == "closed")
-    );
-    await Promise.all(
-      filteredItemsToOpen.map((item) =>
-        project.items.update(item.id, { state: "closed" })
-      )
-    );
-
-    if (filteredItemsToOpen || filteredItemsToClose) {
+    if (filteredItemsToOpen.length + filteredItemsToClose.length > 0) {
       core.setOutput(
         "issues",
         JSON.stringify({
