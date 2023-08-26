@@ -19,6 +19,8 @@ const run = async () => {
     });
 
     const items = await project.items.list();
+    core.info(`items: ${items.length}`);
+
     const archivedRepository = new Set();
     const filteredIssueItems = [];
 
@@ -48,6 +50,7 @@ const run = async () => {
 
       filteredIssueItems.push(item);
     }
+    core.info(`archivedRepository: ${archivedRepository.size}`);
 
     const filteredItemsToClose = filteredIssueItems.filter(
       (item) =>
@@ -57,6 +60,8 @@ const run = async () => {
       (item) =>
         openIssueColumns.includes(item.fields.status) && item.content.closed
     );
+    core.info(`filteredItemsToClose: ${filteredItemsToClose.length}`);
+    core.info(`filteredItemsToOpen: ${filteredItemsToOpen.length}`);
 
     await Promise.all(
       filteredItemsToClose.map(async (item) => {
