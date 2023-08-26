@@ -1,0 +1,151 @@
+lockfileVersion: '6.1'
+
+settings:
+  autoInstallPeers: true
+  excludeLinksFromLockfile: false
+
+devDependencies:
+  '@actions/core':
+    specifier: ^1.10.0
+    version: 1.10.0
+  '@vercel/ncc':
+    specifier: ^0.36.1
+    version: 0.36.1
+  github-project:
+    specifier: ^4.0.0
+    version: 4.0.0
+
+packages:
+
+  /@actions/core@1.10.0:
+    resolution: {integrity: sha512-2aZDDa3zrrZbP5ZYg159sNoLRb61nQ7awl5pSvIq5Qpj81vwDzdMRKzkWJGJuwVvWpvZKx7vspJALyvaaIQyug==}
+    dependencies:
+      '@actions/http-client': 2.1.1
+      uuid: 8.3.2
+    dev: true
+
+  /@actions/http-client@2.1.1:
+    resolution: {integrity: sha512-qhrkRMB40bbbLo7gF+0vu+X+UawOvQQqNAA/5Unx774RS8poaOhThDOG6BGmxvAnxhQnDp2BG/ZUm65xZILTpw==}
+    dependencies:
+      tunnel: 0.0.6
+    dev: true
+
+  /@octokit/auth-token@4.0.0:
+    resolution: {integrity: sha512-tY/msAuJo6ARbK6SPIxZrPBms3xPbfwBrulZe0Wtr/DIY9lje2HeV1uoebShn6mx7SjCHif6EjMvoREj+gZ+SA==}
+    engines: {node: '>= 18'}
+    dev: true
+
+  /@octokit/core@5.0.0:
+    resolution: {integrity: sha512-YbAtMWIrbZ9FCXbLwT9wWB8TyLjq9mxpKdgB3dUNxQcIVTf9hJ70gRPwAcqGZdY6WdJPZ0I7jLaaNDCiloGN2A==}
+    engines: {node: '>= 18'}
+    dependencies:
+      '@octokit/auth-token': 4.0.0
+      '@octokit/graphql': 7.0.1
+      '@octokit/request': 8.1.1
+      '@octokit/request-error': 5.0.0
+      '@octokit/types': 11.1.0
+      before-after-hook: 2.2.3
+      universal-user-agent: 6.0.0
+    dev: true
+
+  /@octokit/endpoint@9.0.0:
+    resolution: {integrity: sha512-szrQhiqJ88gghWY2Htt8MqUDO6++E/EIXqJ2ZEp5ma3uGS46o7LZAzSLt49myB7rT+Hfw5Y6gO3LmOxGzHijAQ==}
+    engines: {node: '>= 18'}
+    dependencies:
+      '@octokit/types': 11.1.0
+      is-plain-object: 5.0.0
+      universal-user-agent: 6.0.0
+    dev: true
+
+  /@octokit/graphql@7.0.1:
+    resolution: {integrity: sha512-T5S3oZ1JOE58gom6MIcrgwZXzTaxRnxBso58xhozxHpOqSTgDS6YNeEUvZ/kRvXgPrRz/KHnZhtb7jUMRi9E6w==}
+    engines: {node: '>= 18'}
+    dependencies:
+      '@octokit/request': 8.1.1
+      '@octokit/types': 11.1.0
+      universal-user-agent: 6.0.0
+    dev: true
+
+  /@octokit/openapi-types@18.0.0:
+    resolution: {integrity: sha512-V8GImKs3TeQRxRtXFpG2wl19V7444NIOTDF24AWuIbmNaNYOQMWRbjcGDXV5B+0n887fgDcuMNOmlul+k+oJtw==}
+    dev: true
+
+  /@octokit/request-error@5.0.0:
+    resolution: {integrity: sha512-1ue0DH0Lif5iEqT52+Rf/hf0RmGO9NWFjrzmrkArpG9trFfDM/efx00BJHdLGuro4BR/gECxCU2Twf5OKrRFsQ==}
+    engines: {node: '>= 18'}
+    dependencies:
+      '@octokit/types': 11.1.0
+      deprecation: 2.3.1
+      once: 1.4.0
+    dev: true
+
+  /@octokit/request@8.1.1:
+    resolution: {integrity: sha512-8N+tdUz4aCqQmXl8FpHYfKG9GelDFd7XGVzyN8rc6WxVlYcfpHECnuRkgquzz+WzvHTK62co5di8gSXnzASZPQ==}
+    engines: {node: '>= 18'}
+    dependencies:
+      '@octokit/endpoint': 9.0.0
+      '@octokit/request-error': 5.0.0
+      '@octokit/types': 11.1.0
+      is-plain-object: 5.0.0
+      universal-user-agent: 6.0.0
+    dev: true
+
+  /@octokit/types@11.1.0:
+    resolution: {integrity: sha512-Fz0+7GyLm/bHt8fwEqgvRBWwIV1S6wRRyq+V6exRKLVWaKGsuy6H9QFYeBVDV7rK6fO3XwHgQOPxv+cLj2zpXQ==}
+    dependencies:
+      '@octokit/openapi-types': 18.0.0
+    dev: true
+
+  /@vercel/ncc@0.36.1:
+    resolution: {integrity: sha512-S4cL7Taa9yb5qbv+6wLgiKVZ03Qfkc4jGRuiUQMQ8HGBD5pcNRnHeYM33zBvJE4/zJGjJJ8GScB+WmTsn9mORw==}
+    hasBin: true
+    dev: true
+
+  /before-after-hook@2.2.3:
+    resolution: {integrity: sha512-NzUnlZexiaH/46WDhANlyR2bXRopNg4F/zuSA3OpZnllCUgRaOF2znDioDWrmbNVsuZk6l9pMquQB38cfBZwkQ==}
+    dev: true
+
+  /deprecation@2.3.1:
+    resolution: {integrity: sha512-xmHIy4F3scKVwMsQ4WnVaS8bHOx0DmVwRywosKhaILI0ywMDWPtBSku2HNxRvF7jtwDRsoEwYQSfbxj8b7RlJQ==}
+    dev: true
+
+  /github-project@4.0.0:
+    resolution: {integrity: sha512-RowO+CIT8OhV2hN6Y9WCdP6I/L0wxWDabJZJB32sU9NJWsIwhBfwTEbuy6LDFabKF3Rj6MsPetQHlZ/J1nICmQ==}
+    dependencies:
+      '@octokit/core': 5.0.0
+      type-fest: 4.2.0
+    dev: true
+
+  /is-plain-object@5.0.0:
+    resolution: {integrity: sha512-VRSzKkbMm5jMDoKLbltAkFQ5Qr7VDiTFGXxYFXXowVj387GeGNOCsOH6Msy00SGZ3Fp84b1Naa1psqgcCIEP5Q==}
+    engines: {node: '>=0.10.0'}
+    dev: true
+
+  /once@1.4.0:
+    resolution: {integrity: sha512-lNaJgI+2Q5URQBkccEKHTQOPaXdUxnZZElQTZY0MFUAuaEqe1E+Nyvgdz/aIyNi6Z9MzO5dv1H8n58/GELp3+w==}
+    dependencies:
+      wrappy: 1.0.2
+    dev: true
+
+  /tunnel@0.0.6:
+    resolution: {integrity: sha512-1h/Lnq9yajKY2PEbBadPXj3VxsDDu844OnaAo52UVmIzIvwwtBPIuNvkjuzBlTWpfJyUbG3ez0KSBibQkj4ojg==}
+    engines: {node: '>=0.6.11 <=0.7.0 || >=0.7.3'}
+    dev: true
+
+  /type-fest@4.2.0:
+    resolution: {integrity: sha512-5zknd7Dss75pMSED270A1RQS3KloqRJA9XbXLe0eCxyw7xXFb3rd+9B0UQ/0E+LQT6lnrLviEolYORlRWamn4w==}
+    engines: {node: '>=16'}
+    dev: true
+
+  /universal-user-agent@6.0.0:
+    resolution: {integrity: sha512-isyNax3wXoKaulPDZWHQqbmIx1k2tb9fb3GGDBRxCscfYV2Ch7WxPArBsFEG8s/safwXTT7H4QGhaIkTp9447w==}
+    dev: true
+
+  /uuid@8.3.2:
+    resolution: {integrity: sha512-+NYs2QeMWy+GWFOEm9xnn6HCDp0l7QBD7ml8zLUmJ+93Q5NF0NocErnwkTkXVFNiX3/fpC6afS8Dhb/gz7R7eg==}
+    hasBin: true
+    dev: true
+
+  /wrappy@1.0.2:
+    resolution: {integrity: sha512-l4Sp/DRseor9wL6EvV2+TuQn63dMkPjZ/sp9XkghTEbV9KlPS1xUsZ3u7/IQO4wxtcFB4bgpQPRcR3QCvezPcQ==}
+    dev: true

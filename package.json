@@ -1,0 +1,34 @@
+{
+  "name": "auto-state-issue",
+  "version": "0.1.0",
+  "description": "Automatically close or open base on statues.",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "ncc build index.js"
+  },
+  "author": "pamasse",
+  "license": "MIT",
+  "type": "module",
+  "devDependencies": {
+    "@actions/core": "^1.10.0",
+    "@vercel/ncc": "^0.36.1",
+    "github-project": "^4.0.0"
+  },
+  "engines": {
+    "node": ">=16.0.0"
+  },
+  "keywords": [
+    "github",
+    "issues",
+    "projects",
+    "project columns",
+    "project cards",
+    "github projects",
+    "open issues",
+    "close issues",
+    "automation",
+    "github actions",
+    "project management",
+    "bot"
+  ]
+}
