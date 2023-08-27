@@ -1,6 +1,6 @@
 {
   "name": "auto-state-issue",
-  "version": "1.0.0",
+  "version": "1.0.6",
   "description": "Automatically close or open base on statues.",
   "main": "dist/index.js",
   "scripts": {
@@ -16,7 +16,7 @@
     "github-project": "^4.0.0"
   },
   "engines": {
-    "node": ">=16.0.0"
+    "node": ">=18.0.0"
   },
   "keywords": [
     "github",

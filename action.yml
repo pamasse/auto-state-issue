@@ -23,7 +23,7 @@ outputs:
   issues:
     description: "Issues that have been either closed or reopened, value is a JSON string"
 runs:
-  using: "node16"
+  using: "node18"
   main: "dist/index.js"
 branding:
   icon: "box"
