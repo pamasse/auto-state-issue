@@ -2,9 +2,12 @@ name: "Auto Close/Open Issues"
 description: "Close or reopen issues when they are moved to a specific column"
 author: "pamasse"
 inputs:
+  owner:
+    description: The account name of the GitHub organization.
+    required: true
   github-token:
-    description: "GitHub access token - Project access"
-    default: "${{ github.token }}"
+    description: Personal access token or an OAuth token. the write:org scope is required for read-write access.
+    required: true
   project-id:
     description: Project number as you see it in the URL of the project.
     required: true
