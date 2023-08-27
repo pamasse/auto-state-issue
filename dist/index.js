@@ -12609,7 +12609,7 @@ const run = async () => {
 
       filteredIssueItems.push(item);
     }
-    core.info(`archivedRepository: ${archivedRepository.length}`);
+    core.info(`archivedRepository: ${archivedRepository.size}`);
 
     const filteredItemsToClose = filteredIssueItems.filter(
       (item) =>
