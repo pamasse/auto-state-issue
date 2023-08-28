@@ -1,6 +1,6 @@
 # auto-state-issue
 
-Strongly inspired by the [move-to-next-iteration](https://github.com/blombard/move-to-next-iteration) github action.
+Strongly inspired by the [move-to-next-iteration](https://github.com/blombard/move-to-next-iteration) and [Issue States](https://github.com/dessant/issue-states) github actions.
 
 ```
 name: Auto Close/Open Issues
